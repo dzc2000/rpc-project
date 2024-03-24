@@ -5,6 +5,7 @@ import org.example.common.service.UserService;
 import org.example.rpc.registry.LocalRegistry;
 import org.example.rpc.server.HttpServer;
 import org.example.rpc.server.VertxHttpServer;
+import org.example.rpc.utils.RpcApplication;
 
 public class EasyProviderExample {
     public static void main(String[] args) {
@@ -13,6 +14,6 @@ public class EasyProviderExample {
 
         //web服务
         HttpServer httpServer = new VertxHttpServer();
-        httpServer.doStart(8080);
+        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
     }
 }
