@@ -9,6 +9,7 @@ import org.example.rpc.utils.RpcApplication;
 
 public class EasyProviderExample {
     public static void main(String[] args) {
+        RpcApplication.init();
         //注册服务
         LocalRegistry.register(UserService.class.getName(), UserServiceImpl.class);
 
