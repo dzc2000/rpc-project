@@ -1,7 +1,10 @@
 package org.example.rpc.utils;
 
+import org.example.rpc.config.RegistryConfig;
 import org.example.rpc.config.RpcConfig;
 import org.example.rpc.constant.RpcConstant;
+import org.example.rpc.registry.Registry;
+import org.example.rpc.registry.RegistryFactory;
 import org.example.rpc.utils.ConfigUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,6 +25,13 @@ public class RpcApplication {
     public static void init(RpcConfig newRpcConfig) {
         rpcConfig = newRpcConfig;
         log.info("rpc init, config = {}", newRpcConfig.toString());
+        // 注册中心初始化
+        RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
+        Registry registry = RegistryFactory.getInstance(registryConfig.getRegistry());
+        registry.init(registryConfig);
+        log.info("registry init, config = {}", registryConfig);
+        // 创建并注册 Shutdown Hook，JVM 退出时执行操作
+        Runtime.getRuntime().addShutdownHook(new Thread(registry::destroy));
     }
 
     /**

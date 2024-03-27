@@ -33,6 +33,11 @@
             <artifactId>slf4j-api</artifactId>
             <version>2.0.0-alpha1</version>
         </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.5.3</version>
+        </dependency>
         <!-- 序列化 -->
         <!-- https://mvnrepository.com/artifact/com.caucho/hessian -->
         <dependency>
@@ -67,6 +72,25 @@
             <artifactId>netty-resolver-dns-native-macos</artifactId>
             <version>4.1.75.Final</version> <!--版本号自己切-->
             <classifier>osx-aarch_64</classifier>
+        </dependency>
+        <!-- 注册中心 -->
+        <!-- https://mvnrepository.com/artifact/io.etcd/jetcd-core -->
+        <dependency>
+            <groupId>io.etcd</groupId>
+            <artifactId>jetcd-core</artifactId>
+            <version>0.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-x-discovery</artifactId>
+            <version>5.6.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
