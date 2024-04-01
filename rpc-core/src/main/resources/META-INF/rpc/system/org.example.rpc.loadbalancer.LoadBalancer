@@ -1,0 +1,3 @@
+consistentHash=org.example.rpc.loadbalancer.ConsistentHashLoadBalancer
+random=org.example.rpc.loadbalancer.RandomLoadBalancer
+poll=org.example.rpc.loadbalancer.PollLoadBalancer
